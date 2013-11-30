@@ -1,8 +1,8 @@
-========================
-django-twoscoops-project
-========================
+============================
+GAE-django-twoscoops-project
+============================
 
-A project template for Django 1.5.
+A project template for Django 1.5 running on GAE.
 
 To use this project follow these steps:
 
