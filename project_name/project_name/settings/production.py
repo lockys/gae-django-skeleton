@@ -25,7 +25,7 @@ ALLOWED_HOSTS = []
 
 ########## EMAIL CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'backend.gae.mail.EmailBackend'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-host
 EMAIL_HOST = environ.get('EMAIL_HOST', 'smtp.gmail.com')
@@ -50,7 +50,13 @@ SERVER_EMAIL = EMAIL_HOST_USER
 ########## END EMAIL CONFIGURATION
 
 ########## DATABASE CONFIGURATION
-DATABASES = {}
+DATABASES = {
+	'default': {
+		'ENGINE': 'google.appengine.ext.django.backends.rdbms',
+		'INSTANCE': '',
+		'NAME': '',
+	}
+}
 ########## END DATABASE CONFIGURATION
 
 
@@ -58,6 +64,23 @@ DATABASES = {}
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#caches
 CACHES = {}
 ########## END CACHE CONFIGURATION
+
+
+########## STORAGE CONFIGURATION
+# See: https://github.com/ckopanos/django-google-cloud-storage
+DEFAULT_FILE_STORAGE = 'backend.gae.storage.googleCloud.GoogleCloudStorage'
+
+GOOGLE_CLOUD_STORAGE_BUCKET = '/your_bucket_name' # the name of the bucket you have created from the google cloud storage console
+GOOGLE_CLOUD_STORAGE_URL = 'http://storage.googleapis.com/bucket' #whatever the ulr for accessing your cloud storgage bucket
+GOOGLE_CLOUD_STORAGE_DEFAULT_CACHE_CONTROL = 'public, max-age: 7200' # default cache control headers for your files
+########## END STORAGE CONFIGURATION
+
+########## FILE UPLOAD CONFIGURATION
+# only use the memory file uploader, do not use the file system - not able to do so on
+# google app engine
+FILE_UPLOAD_HANDLERS = ('django.core.files.uploadhandler.MemoryFileUploadHandler',)
+FILE_UPLOAD_MAX_MEMORY_SIZE = 2621440
+########## END FILE UPLOAD CONFIGURATION
 
 
 ########## SECRET CONFIGURATION
