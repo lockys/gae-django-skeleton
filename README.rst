@@ -68,8 +68,16 @@ Installing Django
 =================
 
 To install Django in the new virtual environment, run the following command::
+Instead of installing Django, I recommend using Django library included in GAE by adding it to your path.
 
-    $ pip install django
+OS X
+----------
+
+Open your path file and add below ('.path' or '.bash_profile')::
+
+    export GAE="/usr/local/google_appengine"
+    export PYTHONPATH="$PYTHONPATH:$GAE:$GAE/lib/django-1.5"
+    export PATH=${PATH}:$GAE/lib/django-1.5/django/bin/
 
 Creating your project
 =====================
