@@ -90,15 +90,17 @@ django-twoscoops-project, run the following command::
 Installation of Dependencies
 =============================
 
+Since you need to upload your dependencies to GAE along with your project, you need to install them to the project folder. Use pip flag --install-option="--prefix=$PROJECT_PATH" for this. Simply, replace '$PROJECT_PATH' to your project location.
+
 Depending on where you are installing dependencies:
 
 In development::
 
-    $ pip install -r requirements/local.txt
+    $ pip install -r requirements/local.txt --install-option="--prefix=$PROJECT_PATH"
 
 For production::
 
-    $ pip install -r requirements.txt
+    $ pip install -r requirements.txt --install-option="--prefix=$PROJECT_PATH"
 
 *note: We install production requirements this way because many Platforms as a
 Services expect a requirements.txt file in the root of projects.*
