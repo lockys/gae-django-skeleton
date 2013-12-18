@@ -19,3 +19,7 @@ build
 
 # PyCharm
 .idea/
+
+# GAE
+.DS_Store
+.gaedata
