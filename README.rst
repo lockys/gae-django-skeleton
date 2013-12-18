@@ -1,15 +1,14 @@
-============================
-GAE-django-project
-============================
+========================
+django-twoscoops-project
+========================
 
-A project template for Django 1.5 running on GAE.
+A project template for Django 1.5.
 
 To use this project follow these steps:
 
 #. Create your working environment
-#. Install GAE sdk
 #. Install Django
-#. Create the new project using the GAE-django template
+#. Create the new project using the django-two-scoops template
 #. Install additional dependencies
 #. Use the Django admin to create the project
 
@@ -65,26 +64,9 @@ virtualenvwrapper):
     /home/<youruser>/icecream/icecream/
     import sys; new=sys.path[sys.__plen:]; del sys.path[sys.__plen:]; p=getattr(sys,'__egginsert',0); sys.path[p:p]=new; sys.__egginsert = p+len(new)
 
-Installing GAE SDK
-==================
-
-Download and install GAE SDK from the following link:
-https://developers.google.com/appengine/downloads#Google_App_Engine_SDK_for_Python
-
 Installing Django
 =================
 
-<<<<<<< HEAD
-Instead of installing Django separately, I recommend using Django included in GAE SDK.
-Find the path of your GAE SDK, and Django inside it.
-You can simply add them to your python path of virtualenv with add2virtualenv (http://virtualenvwrapper.readthedocs.org/en/latest/command_ref.html#add2virtualenv).
-
-For example::
-
-    $ add2virtualenv /usr/local/google_appengine
-    $ add2virtualenv /usr/local/google_appengine/lib/django-1.5
-    $ add2virtualenv /usr/local/google_appengine/lib/django-1.5/bin
-=======
 To install Django in the new virtual environment, run the following command::
 Instead of installing Django, I recommend using Django library included in GAE by adding it to your path.
 
@@ -96,7 +78,6 @@ Open your path file and add below ('.path' or '.bash_profile')::
     export GAE="/usr/local/google_appengine"
     export PYTHONPATH="$PYTHONPATH:$GAE:$GAE/lib/django-1.5"
     export PATH=${PATH}:$GAE/lib/django-1.5/django/bin/
->>>>>>> develop
 
 Creating your project
 =====================
@@ -109,31 +90,19 @@ django-twoscoops-project, run the following command::
 Installation of Dependencies
 =============================
 
-<<<<<<< HEAD
 Since you need to upload your dependencies to GAE along with your project,
 you need to install them to the project folder. Use **pip** flag **--install-option="--prefix=YOUR_PROJECT_PATH"** for this.
 Simply, replace '**YOUR_PROJECT_PATH**' to your project location.
-=======
-Since you need to upload your dependencies to GAE along with your project, you need to install them to the project folder. Use pip flag --install-option="--prefix=$PROJECT_PATH" for this. Simply, replace '$PROJECT_PATH' to your project location.
->>>>>>> develop
 
 Depending on where you are installing dependencies:
 
 In development::
 
-<<<<<<< HEAD
-    $ pip install --install-option="--prefix=$PREFIX_PATH" -r requirements/local.txt
-
-For production::
-
-    $ pip install --install-option="--prefix=$PREFIX_PATH" -r requirements.txt
-=======
     $ pip install -r requirements/local.txt --install-option="--prefix=$PROJECT_PATH"
 
 For production::
 
     $ pip install -r requirements.txt --install-option="--prefix=$PROJECT_PATH"
->>>>>>> develop
 
 *note: We install production requirements this way because many Platforms as a
 Services expect a requirements.txt file in the root of projects.*
@@ -141,4 +110,7 @@ Services expect a requirements.txt file in the root of projects.*
 Acknowledgements
 ================
 
-- This project was based on Django Two Scoops project.
+- Many thanks to Randall Degges for the inspiration to write the book and django-skel.
+- All of the contributors_ to this project.
+
+.. _contributors: https://github.com/twoscoops/django-twoscoops-project/blob/master/CONTRIBUTORS.txt
