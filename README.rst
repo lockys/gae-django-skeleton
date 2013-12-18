@@ -2,7 +2,7 @@
 django-twoscoops-project
 ========================
 
-A project template for Django 1.5.
+A project template for Django 1.5 used in Google Cloud Platform (Google App Egine, Google Cloud SQL, and Google Cloud Storage).
 
 To use this project follow these steps:
 
