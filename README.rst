@@ -74,6 +74,7 @@ https://developers.google.com/appengine/downloads#Google_App_Engine_SDK_for_Pyth
 Installing Django
 =================
 
+<<<<<<< HEAD
 Instead of installing Django separately, I recommend using Django included in GAE SDK.
 Find the path of your GAE SDK, and Django inside it.
 You can simply add them to your python path of virtualenv with add2virtualenv (http://virtualenvwrapper.readthedocs.org/en/latest/command_ref.html#add2virtualenv).
@@ -83,6 +84,19 @@ For example::
     $ add2virtualenv /usr/local/google_appengine
     $ add2virtualenv /usr/local/google_appengine/lib/django-1.5
     $ add2virtualenv /usr/local/google_appengine/lib/django-1.5/bin
+=======
+To install Django in the new virtual environment, run the following command::
+Instead of installing Django, I recommend using Django library included in GAE by adding it to your path.
+
+OS X
+----------
+
+Open your path file and add below ('.path' or '.bash_profile')::
+
+    export GAE="/usr/local/google_appengine"
+    export PYTHONPATH="$PYTHONPATH:$GAE:$GAE/lib/django-1.5"
+    export PATH=${PATH}:$GAE/lib/django-1.5/django/bin/
+>>>>>>> develop
 
 Creating your project
 =====================
@@ -90,24 +104,36 @@ Creating your project
 To create a new Django project called '**icecream**' using
 django-twoscoops-project, run the following command::
 
-    $ django-admin.py startproject --template=https://github.com/twoscoops/django-twoscoops-project/archive/master.zip --extension=py,rst,html icecream
+    $ django-admin.py startproject --template=https://github.com/twoscoops/django-twoscoops-project/archive/master.zip --extension=py,rst,html icecream_project
 
 Installation of Dependencies
 =============================
 
+<<<<<<< HEAD
 Since you need to upload your dependencies to GAE along with your project,
 you need to install them to the project folder. Use **pip** flag **--install-option="--prefix=YOUR_PROJECT_PATH"** for this.
 Simply, replace '**YOUR_PROJECT_PATH**' to your project location.
+=======
+Since you need to upload your dependencies to GAE along with your project, you need to install them to the project folder. Use pip flag --install-option="--prefix=$PROJECT_PATH" for this. Simply, replace '$PROJECT_PATH' to your project location.
+>>>>>>> develop
 
 Depending on where you are installing dependencies:
 
 In development::
 
+<<<<<<< HEAD
     $ pip install --install-option="--prefix=$PREFIX_PATH" -r requirements/local.txt
 
 For production::
 
     $ pip install --install-option="--prefix=$PREFIX_PATH" -r requirements.txt
+=======
+    $ pip install -r requirements/local.txt --install-option="--prefix=$PROJECT_PATH"
+
+For production::
+
+    $ pip install -r requirements.txt --install-option="--prefix=$PROJECT_PATH"
+>>>>>>> develop
 
 *note: We install production requirements this way because many Platforms as a
 Services expect a requirements.txt file in the root of projects.*
