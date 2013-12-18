@@ -109,7 +109,7 @@ Acknowledgements
 ================
 
 - Many thanks to Two Scoops: https://django.2scoops.org/
-- Django-nonrel: http://django-nonrel.org/
+- and Django-nonrel: http://django-nonrel.org/
 - All of the contributors_ to this project.
 
 .. _contributors: https://github.com/twoscoops/django-twoscoops-project/blob/master/CONTRIBUTORS.txt
