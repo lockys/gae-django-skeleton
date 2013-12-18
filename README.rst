@@ -108,7 +108,8 @@ Services expect a requirements.txt file in the root of projects.*
 Acknowledgements
 ================
 
-- Many thanks to Randall Degges for the inspiration to write the book and django-skel.
+- Many thanks to Two Scoops: https://django.2scoops.org/
+- Django-nonrel: http://django-nonrel.org/
 - All of the contributors_ to this project.
 
 .. _contributors: https://github.com/twoscoops/django-twoscoops-project/blob/master/CONTRIBUTORS.txt
