@@ -73,6 +73,8 @@ Instead of installing Django, I recommend using Django library included in GAE b
 OS X
 ----------
 
+Run the following command::
+
     $ add2virtualenv GAE="/usr/local/google_appengine"
     $ add2virtualenv PYTHONPATH="$PYTHONPATH:$GAE:$GAE/lib/django-1.5"
     $ add2virtualenv PATH=${PATH}:$GAE/lib/django-1.5/django/bin/
