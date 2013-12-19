@@ -75,9 +75,9 @@ OS X
 
 Run the following command::
 
-    $ add2virtualenv GAE="/usr/local/google_appengine"
-    $ add2virtualenv PYTHONPATH="$PYTHONPATH:$GAE:$GAE/lib/django-1.5"
-    $ add2virtualenv PATH=${PATH}:$GAE/lib/django-1.5/django/bin/
+    $ add2virtualenv "/usr/local/google_appengine"
+    $ add2virtualenv "/usr/local/google_appengine/lib/django-1.5"
+    $ add2virtualenv "/usr/local/google_appengine/lib/django-1.5/django/bin/
 
 Creating your project
 =====================
