@@ -1,6 +1,6 @@
-========================
-django-twoscoops-project
-========================
+==================
+gae-django-project
+==================
 
 A project template for Django 1.5 used in Google Cloud Platform (Google App Egine, Google Cloud SQL, and Google Cloud Storage).
 
@@ -43,7 +43,7 @@ project path to the `site-directory` for you::
 
     $ mkdir icecream
     $ mkvirtualenv -a icecream icecream-dev
-    $ cd icecream && add2virtualenv `pwd`
+    $ add2virtualenv `pwd`
 
 Windows
 ----------
@@ -55,7 +55,7 @@ you will need to add a python pathfile named `_virtualenv_path_extensions.pth`
 to the `site-packages`. If you have been following the book, then your
 virtualenv folder will be something like::
 
-`~/.virtualenvs/icecream/lib/python2.7/site-directory/`
+    `~/.virtualenvs/icecream/lib/python2.7/site-directory/`
 
 In the pathfile, you will want to include the following code (from
 virtualenvwrapper):
@@ -67,16 +67,9 @@ virtualenvwrapper):
 Installing Django
 =================
 
-Instead of installing Django, I recommend using Django library included in GAE by adding it to your virtualenv path.
+To install Django in the new virtual environment, run the following command::
 
-OS X
-----------
-
-Run the following command::
-
-    $ add2virtualenv "/usr/local/google_appengine"
-    $ add2virtualenv "/usr/local/google_appengine/lib/django-1.5"
-    $ add2virtualenv "/usr/local/google_appengine/lib/django-1.5/django/bin"
+    $ pip install django
 
 Creating your project
 =====================
@@ -84,7 +77,7 @@ Creating your project
 To create a new Django project called '**icecream**' using
 django-twoscoops-project, run the following command::
 
-    $ django-admin.py startproject --template=https://github.com/gluwa/gae-django-skeleton/archive/master.zip --extension=py,rst,html icecream_project
+    $ django-admin.py startproject --template=https://github.com/gluwa/gae-django-skeleton/archive/master.zip --extension=py,rst,html,sh icecream_project
 
 Installation of Dependencies
 =============================
@@ -93,15 +86,19 @@ Since you need to upload your dependencies to GAE along with your project,
 you need to install them to the project folder. Use **pip** flag **--install-option="--prefix=YOUR_PROJECT_PATH"** for this.
 Simply, replace '**YOUR_PROJECT_PATH**' to your project location.
 
-Depending on where you are installing dependencies:
+Depending on where you are installing dependencies::
 
-In development::
+    $ ./install_requirements.sh
 
-    $ pip install -r requirements/local.txt --install-option="--prefix=$PROJECT_PATH"
+In case you get::
 
-For production::
+    $ ./install_requirements.sh
+    -bash: ./install_requirements.sh: Permission denied
 
-    $ pip install -r requirements.txt --install-option="--prefix=$PROJECT_PATH"
+Retry after granting the necessary permissions::
+
+    $ chmod 777 ./install_requirements.sh
+    $ ./install_requirements.sh
 
 *note: We install production requirements this way because many Platforms as a
 Services expect a requirements.txt file in the root of projects.*
