@@ -104,8 +104,8 @@ Retry after granting the necessary permissions::
 *note: We install production requirements this way because many Platforms as a
 Services expect a requirements.txt file in the root of projects.*
 
-Google Platform
-===============
+Google Cloud Platform
+=====================
 
 You need to have Google Cloud SQL to use your Django code as-is on Google App Engine.
 
