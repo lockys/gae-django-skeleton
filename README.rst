@@ -8,7 +8,7 @@ To use this project follow these steps:
 
 #. Create your working environment
 #. Install Django
-#. Create the new project using the django-two-scoops template
+#. Create the new project using the gae-django-skeleton template
 #. Install additional dependencies
 #. Use the Django admin to create the project
 
@@ -104,11 +104,20 @@ Retry after granting the necessary permissions::
 *note: We install production requirements this way because many Platforms as a
 Services expect a requirements.txt file in the root of projects.*
 
+Google Platform
+===============
+
+You need to have Google Cloud SQL to use your Django code as-is on Google App Engine.
+
+Google Cloud SQL
+----------------
+
+Refer to the link below and connect Google Cloud SQL to your project.
+
+https://developers.google.com/appengine/docs/python/cloud-sql/django
+
 Acknowledgements
 ================
 
 - Many thanks to Two Scoops: https://django.2scoops.org/
 - and Django-nonrel: http://django-nonrel.org/
-- All of the contributors_ to this project.
-
-.. _contributors: https://github.com/twoscoops/django-twoscoops-project/blob/master/CONTRIBUTORS.txt
