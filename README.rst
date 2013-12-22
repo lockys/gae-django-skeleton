@@ -83,8 +83,7 @@ Installation of Dependencies
 =============================
 
 Since you need to upload your dependencies to GAE along with your project,
-you need to install them to the project folder. Use **pip** flag **--install-option="--prefix=YOUR_PROJECT_PATH"** for this.
-Simply, replace '**YOUR_PROJECT_PATH**' to your project location.
+you need to install them to the project folder.
 
 Depending on where you are installing dependencies::
 
