@@ -69,7 +69,9 @@ Installing Django
 
 To install Django in the new virtual environment, run the following command::
 
-    $ pip install django
+    $ pip install django=='1.5'
+
+*note: This skeleton is specifically for django 1.5.*
 
 Creating your project
 =====================
