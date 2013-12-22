@@ -16,3 +16,10 @@ build
 
 # Logs:
 *.log
+
+# PyCharm
+.idea/
+
+# GAE
+.DS_Store
+.gaedata
