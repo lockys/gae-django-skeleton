@@ -47,9 +47,11 @@ libraries:
 - name: jinja2
   version: "latest"
 
+env_variables:
+  DJANGO_SETTINGS_MODULE: 'icecream_project.settings.local'
+
 # Handlers tell App Engine how to route requests to your application.
 handlers:
-
 - url: /media/admin
   static_dir: django/contrib/admin/media
   expiration: '0'
