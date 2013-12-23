@@ -17,6 +17,7 @@ threadsafe: yes
 # for a list of other builtins.
 # TODO: List any other builtins that you wish to use.
 builtins:
+- django_wsgi: on
 - remote_api: on
 
 # Before an application can receive certain messages, the application must be
