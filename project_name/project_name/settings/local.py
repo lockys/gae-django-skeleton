@@ -62,6 +62,7 @@ MIDDLEWARE_CLASSES += (
 
 # See: https://github.com/django-debug-toolbar/django-debug-toolbar#installation
 DEBUG_TOOLBAR_CONFIG = {
+    'SHOW_TOOLBAR_CALLBACK': True,
     'INTERCEPT_REDIRECTS': False,
     'SHOW_TEMPLATE_CONTEXT': True,
 }
