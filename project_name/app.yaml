@@ -7,7 +7,7 @@
 # using cloud.google.com/console use the "project id" for your application
 # id.
 application: your-application-id-here
-version: 1
+version: 0.0.0
 runtime: python27
 api_version: 1
 threadsafe: yes
@@ -41,6 +41,10 @@ inbound_services:
 libraries:
 - name: django
   version: "1.5"
+- name: MySQLdb
+  version: "latest"
+- name: jinja2
+  version: "latest"
 
 # Handlers tell App Engine how to route requests to your application.
 handlers:
