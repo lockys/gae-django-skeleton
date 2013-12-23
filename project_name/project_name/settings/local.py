@@ -60,9 +60,18 @@ MIDDLEWARE_CLASSES += (
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
+def show_toolbar(request):
+    import os
+    
+    if (os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine') or
+    	os.getenv('SETTINGS_MODE') == 'prod'):
+    	return False
+    else:
+    	return True
+
 # See: https://github.com/django-debug-toolbar/django-debug-toolbar#installation
 DEBUG_TOOLBAR_CONFIG = {
-    'SHOW_TOOLBAR_CALLBACK': True,
+    'SHOW_TOOLBAR_CALLBACK': show_toolbar,
     'INTERCEPT_REDIRECTS': False,
     'SHOW_TEMPLATE_CONTEXT': True,
 }
