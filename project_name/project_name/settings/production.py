@@ -52,9 +52,10 @@ SERVER_EMAIL = EMAIL_HOST_USER
 ########## DATABASE CONFIGURATION
 DATABASES = {
 	'default': {
-		'ENGINE': 'google.appengine.ext.django.backends.rdbms',
-		'INSTANCE': '',
-		'NAME': '',
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': '/cloudsql/your-project-id:your-instance-name',
+        'NAME': 'database-name',
+        'USER': 'mysql-user',
 	}
 }
 ########## END DATABASE CONFIGURATION
