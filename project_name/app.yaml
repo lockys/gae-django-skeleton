@@ -48,7 +48,7 @@ libraries:
   version: "latest"
 
 env_variables:
-  DJANGO_SETTINGS_MODULE: 'icecream_project.settings.local'
+  DJANGO_SETTINGS_MODULE: 'project_name.settings.local'
 
 # Handlers tell App Engine how to route requests to your application.
 handlers:
