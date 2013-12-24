@@ -79,7 +79,7 @@ Creating your project
 To create a new Django project called '**icecream**' using
 django-twoscoops-project, run the following command::
 
-    $ django-admin.py startproject --template=https://github.com/gluwa/gae-django-skeleton/archive/master.zip --extension=py,rst,html,sh icecream_project
+    $ django-admin.py startproject --template=https://github.com/gluwa/gae-django-skeleton/archive/master.zip --extension=py,rst,html,sh,yaml icecream_project
 
 Installation of Dependencies
 =============================
