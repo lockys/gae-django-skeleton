@@ -85,21 +85,28 @@ Installation of Dependencies
 =============================
 
 Since you need to upload your dependencies to GAE along with your project,
-you need to install them to the project folder.
+you need to install them to the project folder. **requirements.sh** in
+the project root directory will install requirments to **libs** directory,
+and **libs.sh** in the project directory will create symlinks from **libs** directory
+to the project directory.
 
 Depending on where you are installing dependencies::
 
-    $ ./install_requirements.sh
+    $ ./requirements.sh
+    $ cd icecream
+    $ ./lib.sh
 
 In case you get::
 
-    $ ./install_requirements.sh
-    -bash: ./install_requirements.sh: Permission denied
+    -bash: ./requirements.sh: Permission denied
 
 Retry after granting the necessary permissions::
 
-    $ chmod 777 ./install_requirements.sh
-    $ ./install_requirements.sh
+    $ chmod 777 ./requirements.sh
+
+or
+
+    $ chmod 777 ./lib.sh
 
 *note: We install production requirements this way because many Platforms as a
 Services expect a requirements.txt file in the root of projects.*
@@ -107,7 +114,7 @@ Services expect a requirements.txt file in the root of projects.*
 Google Cloud Platform
 =====================
 
-You need to have Google Cloud SQL to use your Django code as-is on Google App Engine.
+You need Google Cloud SQL and Google Cloud Storage to use your Django code as-is on Google App Engine.
 
 Google Cloud SQL
 ----------------
@@ -115,6 +122,15 @@ Google Cloud SQL
 Refer to the link below and connect Google Cloud SQL to your project.
 
 https://developers.google.com/appengine/docs/python/cloud-sql/django
+
+Google Cloud Storage
+--------------------
+
+Refer to the link below and connect Google Cloud Storage to your project.
+
+https://developers.google.com/storage
+
+Fix **gae.py**, **local.py**, and **producttion.py** under **icecream/settings** folder.
 
 Acknowledgements
 ================
