@@ -1,6 +1,6 @@
 """Production settings and globals."""
 
-
+import os
 from os import environ
 
 from base import *
@@ -20,7 +20,9 @@ def get_env_setting(setting):
 
 ########## HOST CONFIGURATION
 # See: https://docs.djangoproject.com/en/1.5/releases/1.5/#allowed-hosts-required-in-production
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'your-application-id-here.appspot.com',
+]
 ########## END HOST CONFIGURATION
 
 ########## EMAIL CONFIGURATION
@@ -50,31 +52,33 @@ SERVER_EMAIL = EMAIL_HOST_USER
 ########## END EMAIL CONFIGURATION
 
 ########## DATABASE CONFIGURATION
-DATABASES = {
-	'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST': '/cloudsql/your-project-id:your-instance-name',
-        'NAME': 'database-name',
-        'USER': 'mysql-user',
-	}
-}
+if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
+    # Running on production App Engine, so use a Google Cloud SQL database.
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'HOST': '/cloudsql/your-application-id-here:database-name-here',
+            'NAME': 'database-name-here',
+            'USER': 'root',
+        }
+    }
+elif os.getenv('SETTINGS_MODE') == 'prod':
+    # Running in development, but want to access the Google Cloud SQL instance
+    # in production.
+    DATABASES = {
+        'default': {
+            'ENGINE': 'google.appengine.ext.django.backends.rdbms',
+            'INSTANCE': 'your-application-id-here:database-name-here',
+            'NAME': 'database-name-here',
+            'USER': 'root',
+        }
+    }
+
 ########## END DATABASE CONFIGURATION
 
-
-########## CACHE CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#caches
-CACHES = {}
-########## END CACHE CONFIGURATION
-
-
-########## STORAGE CONFIGURATION
-# See: https://github.com/ckopanos/django-google-cloud-storage
-DEFAULT_FILE_STORAGE = 'backend.gae.storage.googleCloud.GoogleCloudStorage'
-
-GOOGLE_CLOUD_STORAGE_BUCKET = '/your_bucket_name' # the name of the bucket you have created from the google cloud storage console
-GOOGLE_CLOUD_STORAGE_URL = 'http://storage.googleapis.com/bucket' #whatever the ulr for accessing your cloud storgage bucket
-GOOGLE_CLOUD_STORAGE_DEFAULT_CACHE_CONTROL = 'public, max-age: 7200' # default cache control headers for your files
-########## END STORAGE CONFIGURATION
+########## SOUTH CONFIGURATION
+SOUTH_DATABASE_ADAPTERS = {'default':'south.db.mysql'}
+########## END SOUTH CONFIGURATION
 
 ########## FILE UPLOAD CONFIGURATION
 # only use the memory file uploader, do not use the file system - not able to do so on
@@ -82,9 +86,3 @@ GOOGLE_CLOUD_STORAGE_DEFAULT_CACHE_CONTROL = 'public, max-age: 7200' # default c
 FILE_UPLOAD_HANDLERS = ('django.core.files.uploadhandler.MemoryFileUploadHandler',)
 FILE_UPLOAD_MAX_MEMORY_SIZE = 2621440
 ########## END FILE UPLOAD CONFIGURATION
-
-
-########## SECRET CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-SECRET_KEY = get_env_setting('SECRET_KEY')
-########## END SECRET CONFIGURATION

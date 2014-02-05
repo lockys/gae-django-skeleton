@@ -78,10 +78,10 @@ USE_TZ = True
 
 
 ########## MEDIA CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#media-root
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
 MEDIA_ROOT = normpath(join(SITE_ROOT, 'media'))
 
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#media-url
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 MEDIA_URL = '/media/'
 ########## END MEDIA CONFIGURATION
 
@@ -109,7 +109,7 @@ STATICFILES_FINDERS = (
 ########## SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 # Note: This key should only be used for development and testing.
-SECRET_KEY = r"{{ secret_key }}"
+SECRET_KEY = r"kzv_(rfc-1)-#1r&+0n5jh523$e=)66p2wms888@(p!_!!d^*4"
 ########## END SECRET CONFIGURATION
 
 
@@ -157,6 +157,8 @@ TEMPLATE_DIRS = (
 ########## MIDDLEWARE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#middleware-classes
 MIDDLEWARE_CLASSES = (
+    # GAE AppStats
+    'google.appengine.ext.appstats.recording.AppStatsDjangoMiddleware',
     # Default Django middleware.
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -185,15 +187,14 @@ DJANGO_APPS = (
     'django.contrib.staticfiles',
 
     # Useful template tags:
-    # 'django.contrib.humanize',
+    'django.contrib.humanize',
 
     # Admin panel and documentation:
     'django.contrib.admin',
-    # 'django.contrib.admindocs',
+    'django.contrib.staticfiles',
 )
 
 THIRD_PARTY_APPS = (
-    # Database migration helpers:
     'south',
 )
 
