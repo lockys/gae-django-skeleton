@@ -135,5 +135,6 @@ Fix **gae.py**, **local.py**, and **producttion.py** under **icecream/settings**
 Acknowledgements
 ================
 
-- Many thanks to Two Scoops: https://django.2scoops.org/
-- and Django-nonrel: http://django-nonrel.org/
+- Two Scoops: https://django.2scoops.org/
+- Django-nonrel: http://django-nonrel.org/
+- JetBrains: http://www.jetbrains.com/
