@@ -23,14 +23,16 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ########## DATABASE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
+DATABASE_OPTIONS = {"charset":"uft8"}
+
+# Running in development, so use a local MySQL database.
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': normpath(join(DJANGO_ROOT, 'default.db')),
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
+            'ENGINE': 'django.db.backends.mysql',
+            'USER': 'DATABASE_USER',
+            'PASSWORD': 'DATABASE_PASSWORD',
+            'HOST': 'localhost',
+            'NAME': 'DATABASE_NAME',
     }
 }
 ########## END DATABASE CONFIGURATION
