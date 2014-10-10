@@ -19,6 +19,7 @@ def get_env_setting(setting):
         raise ImproperlyConfigured(error_msg)
 
 ########## HOST CONFIGURATION
+# TODO: Enter your application id below. If you have signed up
 # See: https://docs.djangoproject.com/en/1.5/releases/1.5/#allowed-hosts-required-in-production
 ALLOWED_HOSTS = [
     'your-application-id-here.appspot.com',
@@ -27,7 +28,7 @@ ALLOWED_HOSTS = [
 
 ########## EMAIL CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
-EMAIL_BACKEND = 'backend.gae.mail.EmailBackend'
+EMAIL_BACKEND = 'django_gae.mail.EmailBackend'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-host
 EMAIL_HOST = environ.get('EMAIL_HOST', 'smtp.gmail.com')
@@ -77,6 +78,10 @@ elif os.getenv('SETTINGS_MODE') == 'prod':
 ########## END DATABASE CONFIGURATION
 
 ########## SOUTH CONFIGURATION
+INSTALLED_APPS += (
+    'south',
+)
+
 SOUTH_DATABASE_ADAPTERS = {'default':'south.db.mysql'}
 ########## END SOUTH CONFIGURATION
 

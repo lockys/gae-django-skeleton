@@ -15,7 +15,6 @@ threadsafe: yes
 # Builtins provide handlers for common application functions. See
 # https://developers.google.com/appengine/docs/python/config/appconfig#Python_app_yaml_Builtin_handlers
 # for a list of other builtins.
-# TODO: List any other builtins that you wish to use.
 builtins:
 - django_wsgi: on
 - remote_api: on
@@ -25,7 +24,6 @@ builtins:
 # warmup requests (see: https://developers.google.com/appengine/docs/adminconsole/instances#Warmup_Requests).
 # See https://developers.google.com/appengine/docs/python/config/appconfig#Python_app_yaml_Inbound_services
 # for a list of other inbound services.
-# TODO: List any other inbound services that you wish to use.
 inbound_services:
 - warmup
 
@@ -38,28 +36,23 @@ inbound_services:
 # Note that dependencies must be located in your project directory - packages
 # installed in the Python environment are not loaded by the App Engine development
 # server or deployment tools.
-# TODO: List any other App Engine SDK libs you may need here.
 libraries:
 - name: django
   version: "1.5"
+- name: PIL
+  version: "latest"
 - name: MySQLdb
   version: "latest"
 - name: jinja2
   version: "latest"
 
 env_variables:
-  DJANGO_SETTINGS_MODULE: 'project_name.settings.local'
+  DJANGO_SETTINGS_MODULE: 'project_name.settings.gae'
 
 # Handlers tell App Engine how to route requests to your application.
 handlers:
-- url: /media/admin
-  static_dir: django/contrib/admin/media
-  expiration: '0'
-
-- url: /static/admin
-  static_dir: django/contrib/admin/static/admin
-  expiration: '0'
-
+handlers:
 - url: /static
-  static_dir: static/
+  static_dir: assets/
   application_readable: True
+  expiration: '0'

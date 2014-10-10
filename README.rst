@@ -104,7 +104,7 @@ Retry after granting the necessary permissions::
 
     $ chmod 777 ./requirements.sh
 
-or
+or::
 
     $ chmod 777 ./lib.sh
 

@@ -31,6 +31,7 @@ TEMPLATE_DEBUG = DEBUG
 
 
 ########## MANAGER CONFIGURATION
+# TODO: Enter your email below.
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = (
     ('Your Name', 'your_email@example.com'),
@@ -159,6 +160,9 @@ TEMPLATE_DIRS = (
 MIDDLEWARE_CLASSES = (
     # GAE AppStats
     'google.appengine.ext.appstats.recording.AppStatsDjangoMiddleware',
+    # Johnny Cache middleware
+    'johnny.middleware.LocalStoreClearMiddleware',
+    'johnny.middleware.QueryCacheMiddleware',
     # Default Django middleware.
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -195,7 +199,6 @@ DJANGO_APPS = (
 )
 
 THIRD_PARTY_APPS = (
-    'south',
 )
 
 # Apps specific for this project go here.

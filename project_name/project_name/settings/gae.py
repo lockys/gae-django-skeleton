@@ -12,8 +12,9 @@ else:
 
 ########## STORAGE CONFIGURATION
 # See: https://github.com/ckopanos/django-google-cloud-storage
-DEFAULT_FILE_STORAGE = 'backend.gae.storage.googleCloud.GoogleCloudStorage'
+DEFAULT_FILE_STORAGE = 'django_gae.storage.googleCloud.GoogleCloudStorage'
 
+# TODO: Enter your bucket name below. If you have signed up
 GOOGLE_CLOUD_STORAGE_BUCKET = '/name-of-your-bucket-here' # the name of the bucket you have created from the google cloud storage console
 GOOGLE_CLOUD_STORAGE_URL = 'http://storage.googleapis.com/bucket' #whatever the url for accessing your cloud storgage bucket
 GOOGLE_CLOUD_STORAGE_DEFAULT_CACHE_CONTROL = 'public, max-age: 7200' # default cache control headers for your files
