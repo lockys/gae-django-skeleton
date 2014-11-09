@@ -21,14 +21,12 @@ def get_env_setting(setting):
 ########## HOST CONFIGURATION
 # TODO: Enter your application id below. If you have signed up
 # See: https://docs.djangoproject.com/en/1.5/releases/1.5/#allowed-hosts-required-in-production
-ALLOWED_HOSTS = [
-    'your-application-id-here.appspot.com',
-]
+ALLOWED_HOSTS = []
 ########## END HOST CONFIGURATION
 
 ########## EMAIL CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
-EMAIL_BACKEND = 'django_gae.mail.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-host
 EMAIL_HOST = environ.get('EMAIL_HOST', 'smtp.gmail.com')
@@ -51,32 +49,6 @@ EMAIL_USE_TLS = True
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#server-email
 SERVER_EMAIL = EMAIL_HOST_USER
 ########## END EMAIL CONFIGURATION
-
-########## DATABASE CONFIGURATION
-# TODO: Enter your application id below. If you have signed up
-if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
-    # Running on production App Engine, so use a Google Cloud SQL database.
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'HOST': '/cloudsql/your-application-id-here:database-name-here',
-            'NAME': 'database-name-here',
-            'USER': 'root',
-        }
-    }
-elif os.getenv('SETTINGS_MODE') == 'prod':
-    # Running in development, but want to access the Google Cloud SQL instance
-    # in production.
-    DATABASES = {
-        'default': {
-            'ENGINE': 'google.appengine.ext.django.backends.rdbms',
-            'INSTANCE': 'your-application-id-here:database-name-here',
-            'NAME': 'database-name-here',
-            'USER': 'root',
-        }
-    }
-
-########## END DATABASE CONFIGURATION
 
 ########## SOUTH CONFIGURATION
 INSTALLED_APPS += (
