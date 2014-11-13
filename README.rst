@@ -2,7 +2,7 @@
 gae-django-project
 ==================
 
-A project template for Django 1.5 used in Google Cloud Platform (Google App Egine, Google Cloud SQL, and Google Cloud Storage).
+A project template for Django 1.5 used in Google Cloud Platform (Google App Engine, Google Cloud SQL, and Google Cloud Storage).
 
 To use this project follow these steps:
 
@@ -14,6 +14,11 @@ To use this project follow these steps:
 
 *note: these instructions show creation of a project called "icecream".  You
 should replace this name with the actual name of your project.*
+
+Sample
+======
+There is a sample project code based on this skeleton:
+https://github.com/gluwa/shiny-ironman
 
 Working Environment
 ===================
