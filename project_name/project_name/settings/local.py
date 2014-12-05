@@ -25,6 +25,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASE_OPTIONS = {"charset":"uft8"}
 
+#TODO: add local database user, password, and name.
 # Running in development, so use a local MySQL database.
 DATABASES = {
     'default': {
@@ -62,19 +63,11 @@ MIDDLEWARE_CLASSES += (
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
-def show_toolbar(request):
-    import os
-    
-    if (os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine') or
-    	os.getenv('SETTINGS_MODE') == 'prod'):
-    	return False
-    else:
-    	return True
-
 # See: https://github.com/django-debug-toolbar/django-debug-toolbar#installation
 DEBUG_TOOLBAR_CONFIG = {
-    'SHOW_TOOLBAR_CALLBACK': show_toolbar,
     'INTERCEPT_REDIRECTS': False,
     'SHOW_TEMPLATE_CONTEXT': True,
 }
+
+DEBUG_TOOLBAR_PATCH_SETTINGS = False
 ########## END TOOLBAR CONFIGURATION

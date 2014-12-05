@@ -14,7 +14,7 @@ if (os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine') or os.geten
         DATABASES = {
             'default': {
                 'ENGINE': 'django.db.backends.mysql',
-                'HOST': '/cloudsql/your-application-id-here:database-name-here',
+                'HOST': '/cloudsql/your-application-id-here:cloud-sql-instance-name-here',
                 'NAME': 'database-name-here',
                 'USER': 'root',
             }
@@ -25,7 +25,7 @@ if (os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine') or os.geten
         DATABASES = {
             'default': {
                 'ENGINE': 'google.appengine.ext.django.backends.rdbms',
-                'INSTANCE': 'your-application-id-here:database-name-here',
+                'INSTANCE': 'your-application-id-here:cloud-sql-instance-name-here',
                 'NAME': 'database-name-here',
                 'USER': 'root',
             }
