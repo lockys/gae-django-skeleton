@@ -46,11 +46,11 @@ libraries:
 - name: jinja2
   version: "latest"
 
+# TODO: Enter your project name below.
 env_variables:
   DJANGO_SETTINGS_MODULE: 'project_name.settings.gae'
 
 # Handlers tell App Engine how to route requests to your application.
-handlers:
 handlers:
 - url: /static
   static_dir: assets/
